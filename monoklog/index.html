@@ -18,6 +18,7 @@
 <meta property="og:image" content="https://qazkaka.github.io/monoklog/images/ogp.png">
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="apple-itunes-app" content="app-id=6833710021">
 <style>
 :root {
   color-scheme: light dark;
@@ -36,7 +37,9 @@ header.hero { padding: 56px 0 40px; text-align: center; }
 .hero .lead { margin: 0 auto; max-width: 36rem; font-size: 1.15rem; color: var(--sub); }
 .hero .store { display: inline-block; margin-top: 24px; padding: 12px 26px; border-radius: 999px; background: var(--text); color: var(--bg); font-weight: 700; text-decoration: none; }
 .hero .note { margin-top: 10px; font-size: .85rem; color: var(--sub); }
-section { padding: 36px 0; border-top: 1px solid var(--line); }
+/* 区切り線は本文の左右の端にそろえ、線と見出しの間に余白を取ります */
+section.wrap, footer.wrap { position: relative; padding-top: 44px; padding-bottom: 40px; }
+section.wrap::before, footer.wrap::before { content: ""; position: absolute; top: 0; left: 20px; right: 20px; border-top: 1px solid var(--line); }
 h2 { margin: 0 0 20px; font-size: 1.4rem; line-height: 1.5; }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 16px; }
 .card { background: var(--card); border-radius: 18px; padding: 20px 22px; }
@@ -52,7 +55,7 @@ h2 { margin: 0 0 20px; font-size: 1.4rem; line-height: 1.5; }
 dl { margin: 0; }
 dt { font-weight: 700; margin-top: 14px; }
 dd { margin: 4px 0 0; color: var(--sub); }
-footer { padding: 32px 0 48px; border-top: 1px solid var(--line); text-align: center; color: var(--sub); font-size: .9rem; }
+footer { text-align: center; color: var(--sub); font-size: .9rem; }
 footer nav a { margin: 0 10px; }
 </style>
 </head>
@@ -61,7 +64,7 @@ footer nav a { margin: 0 10px; }
 <img src="images/icon-512.png" alt="ものクログのアイコン">
 <h1>ものクログ</h1>
 <p class="lead">持ち物・欲しい物・手放した物を、写真や使用記録と一緒に。<br>よく使う物も、しまい込んだ物も、ひと目で分かるコレクション管理アプリです。</p>
-<!-- App StoreのURLが決まったら、href を差し替えて class="store" のリンクを表示します。 -->
+<a class="store" href="https://apps.apple.com/jp/app/%E3%82%82%E3%81%AE%E3%82%AF%E3%83%AD%E3%82%B0/id6833710021">App Storeで見る</a>
 <p class="note">iPhone・iPad対応（iOS 17以降）・基本機能は無料</p>
 </header>
 
