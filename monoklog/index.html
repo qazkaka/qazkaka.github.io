@@ -4,24 +4,127 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
-<title>ものクログ アプリサポート</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self'; base-uri 'none'; form-action 'none'">
+<title>ものクログ ― 持ち物・欲しい物を、写真と使用記録で</title>
+<meta name="description" content="ものクログは、持ち物・欲しい物・手放した物を、写真や使用記録と一緒に管理するiPhone・iPad向けアプリです。使った日を記録して、よく使う物・眠っている物がひと目で分かります。">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="theme-color" content="#BF5C45">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ものクログ">
+<meta property="og:title" content="ものクログ ― 持ち物・欲しい物を、写真と使用記録で">
+<meta property="og:description" content="持ち物・欲しい物・手放した物を、写真や使用記録と一緒に管理するiPhone・iPad向けアプリです。">
+<meta property="og:url" content="https://qazkaka.github.io/monoklog/">
+<meta property="og:image" content="https://qazkaka.github.io/monoklog/images/ogp.png">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
 <style>
-:root { color-scheme: light dark; }
-body { margin: 0 auto; padding: 24px; max-width: 52rem; font: 1rem/1.85 -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif; background: Canvas; color: CanvasText; overflow-wrap: anywhere; }
-h1 { font-size: 1.65rem; line-height: 1.5; }
-a { color: LinkText; text-underline-offset: .18em; }
-li { margin: .4rem 0; }
+:root {
+  color-scheme: light dark;
+  --bg: #FAF5EC; --card: #FFFFFF; --text: #2F2621; --sub: #75655A; --accent: #B9533D; --line: #EADFD0;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #15110F; --card: #221C19; --text: #F3ECE4; --sub: #B5A79C; --accent: #E58B71; --line: #3A302A; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 1rem/1.85 -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif; overflow-wrap: anywhere; }
+a { color: var(--accent); text-underline-offset: .18em; }
+.wrap { max-width: 60rem; margin: 0 auto; padding: 0 20px; }
+header.hero { padding: 56px 0 40px; text-align: center; }
+.hero img { width: 112px; height: 112px; }
+.hero h1 { margin: 16px 0 4px; font-size: 2.2rem; line-height: 1.3; letter-spacing: .02em; }
+.hero .lead { margin: 0 auto; max-width: 36rem; font-size: 1.15rem; color: var(--sub); }
+.hero .store { display: inline-block; margin-top: 24px; padding: 12px 26px; border-radius: 999px; background: var(--text); color: var(--bg); font-weight: 700; text-decoration: none; }
+.hero .note { margin-top: 10px; font-size: .85rem; color: var(--sub); }
+section { padding: 36px 0; border-top: 1px solid var(--line); }
+h2 { margin: 0 0 20px; font-size: 1.4rem; line-height: 1.5; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 16px; }
+.card { background: var(--card); border-radius: 18px; padding: 20px 22px; }
+.card h3 { margin: 0 0 6px; font-size: 1.05rem; }
+.card p { margin: 0; color: var(--sub); font-size: .95rem; }
+.card .emoji { font-size: 1.6rem; line-height: 1; display: block; margin-bottom: 10px; }
+.pro { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 40rem) { .pro { grid-template-columns: 1fr; } .hero h1 { font-size: 1.9rem; } }
+.pro ul { margin: 0; padding-left: 1.2em; }
+.pro li { margin: .3rem 0; }
+.tag { display: inline-block; margin-bottom: 8px; padding: 2px 10px; border-radius: 999px; background: var(--accent); color: var(--card); font-size: .8rem; font-weight: 700; }
+.tag.free { background: var(--line); color: var(--text); }
+dl { margin: 0; }
+dt { font-weight: 700; margin-top: 14px; }
+dd { margin: 4px 0 0; color: var(--sub); }
+footer { padding: 32px 0 48px; border-top: 1px solid var(--line); text-align: center; color: var(--sub); font-size: .9rem; }
+footer nav a { margin: 0 10px; }
 </style>
 </head>
 <body>
-<main>
+<header class="hero wrap">
+<img src="images/icon-512.png" alt="ものクログのアイコン">
 <h1>ものクログ</h1>
-<p>持ち物・欲しい物・手放した物を、写真や使用記録と一緒に管理するiPhone・iPad向けアプリです。</p>
+<p class="lead">持ち物・欲しい物・手放した物を、写真や使用記録と一緒に。<br>よく使う物も、しまい込んだ物も、ひと目で分かるコレクション管理アプリです。</p>
+<!-- App StoreのURLが決まったら、href を差し替えて class="store" のリンクを表示します。 -->
+<p class="note">iPhone・iPad対応（iOS 17以降）・基本機能は無料</p>
+</header>
+
+<main>
+<section class="wrap" aria-labelledby="features">
+<h2 id="features">できること</h2>
+<div class="grid">
+<div class="card"><span class="emoji" aria-hidden="true">📷</span><h3>写真と一緒に登録</h3><p>スニーカー・時計・本・フィギュアなど、何でもカテゴリごとに登録。写真は1点につき6枚まで、カメラでもライブラリからでも追加できます。</p></div>
+<div class="card"><span class="emoji" aria-hidden="true">✅</span><h3>使った日を記録</h3><p>「使用回数を記録」をタップするだけ。使用回数と最終使用日が更新され、写真やコメントも添えられます。</p></div>
+<div class="card"><span class="emoji" aria-hidden="true">🕰️</span><h3>しまい込みに気づける</h3><p>「30日以上使っていない」で絞り込んだり、1回あたりの金額を確かめたり。持っている物を見直すきっかけになります。</p></div>
+<div class="card"><span class="emoji" aria-hidden="true">🗂️</span><h3>ブランド・シリーズで整理</h3><p>メーカー・ブランドの中にシリーズ（例：NIKE › エア ジョーダン）を登録。カテゴリ画面からブランド、シリーズへとたどって眺められます。</p></div>
+<div class="card"><span class="emoji" aria-hidden="true">💭</span><h3>欲しい物リスト</h3><p>優先度・目安価格・発売日を記録。発売日に通知を受け取れ、手に入れたら「持っている物」へそのまま移せます。</p></div>
+<div class="card"><span class="emoji" aria-hidden="true">📊</span><h3>統計で振り返る</h3><p>持っている数・購入額・状態の内訳をひと目で。手放した物（売却・処分）の記録も残ります。</p></div>
+<div class="card"><span class="emoji" aria-hidden="true">🖼️</span><h3>画像で共有</h3><p>写真と商品情報を1枚の画像にまとめて、SNSやメッセージで共有できます。購入額や個人のメモは載せません。</p></div>
+<div class="card"><span class="emoji" aria-hidden="true">💾</span><h3>データは端末の中に</h3><p>登録した内容は端末の中に保存されます。バックアップファイルの書き出しで、機種変更にも対応します。</p></div>
+</div>
+</section>
+
+<section class="wrap" aria-labelledby="pro">
+<h2 id="pro">無料版とPro</h2>
+<div class="pro">
+<div class="card">
+<span class="tag free">無料</span>
 <ul>
-<li><a href="support.html">サポート・お問い合わせ</a></li>
-<li><a href="PrivacyPolicy.html">プライバシーポリシー</a></li>
+<li>合計10件まで登録</li>
+<li>検索・絞り込み・並べ替え</li>
+<li>使用記録・写真6枚</li>
+<li>商品カードの画像共有</li>
+<li>バックアップの書き出し・読み込み</li>
 </ul>
+</div>
+<div class="card">
+<span class="tag">ものクログ Pro（買い切り）</span>
+<ul>
+<li>登録数の上限なし</li>
+<li>カレンダーと詳しい使用分析</li>
+<li>詳しい統計（カテゴリ・購入の推移・ブランドなど）</li>
+<li>絞り込み条件の保存</li>
+<li>iCloudへの自動バックアップ</li>
+<li>共有画像のデザインのカスタマイズ</li>
+<li>外観のカスタム（背景・文字・アクセントの色）</li>
+<li>広告の非表示</li>
+</ul>
+</div>
+</div>
+<p style="color: var(--sub); font-size: .9rem; margin-top: 12px;">Proは月額ではなく一度の購入で使えます。価格はApp Storeでご確認ください。</p>
+</section>
+
+<section class="wrap" aria-labelledby="faq">
+<h2 id="faq">よくある質問</h2>
+<dl>
+<dt>アカウント登録は必要ですか？</dt>
+<dd>必要ありません。インストールしてすぐに使えます。</dd>
+<dt>データはどこに保存されますか？</dt>
+<dd>お使いの端末の中です。Proの「iCloudへの自動バックアップ」をオンにした場合は、ご自身のiCloud Driveにもバックアップを保存します。</dd>
+<dt>機種変更のときは？</dt>
+<dd>「設定 → データ → コレクションを書き出す」で保存したファイルを、新しい端末で読み込みます。詳しくは<a href="support.html">サポート</a>をご覧ください。</dd>
+</dl>
+</section>
 </main>
+
+<footer class="wrap">
+<nav><a href="support.html">サポート・お問い合わせ</a><a href="PrivacyPolicy.html">プライバシーポリシー</a><a href="../">ほかのアプリ</a></nav>
+</footer>
 </body>
 </html>
