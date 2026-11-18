@@ -57,10 +57,83 @@ dt { font-weight: 700; margin-top: 14px; }
 dd { margin: 4px 0 0; color: var(--sub); }
 footer { text-align: center; color: var(--sub); font-size: .9rem; }
 footer nav a { margin: 0 10px; }
+
+/* ---------- 動き ---------- */
+header.hero.wrap { position: relative; isolation: isolate; overflow: hidden; max-width: none; padding: 72px 20px 56px; }
+/* 背景にアイコンの色の光を、ゆっくり漂わせます */
+header.hero::before, header.hero::after {
+  content: ""; position: absolute; z-index: -1; width: 26rem; height: 26rem; border-radius: 50%;
+  filter: blur(60px); opacity: .45;
+}
+header.hero::before { background: #E07A5F; top: -9rem; left: -7rem; animation: drift 14s ease-in-out infinite alternate; }
+header.hero::after { background: #F2CC8F; bottom: -12rem; right: -8rem; animation: drift 18s ease-in-out infinite alternate-reverse; }
+@media (prefers-color-scheme: dark) { header.hero::before, header.hero::after { opacity: .28; } }
+@keyframes drift { from { transform: translate(0, 0) scale(1); } to { transform: translate(5rem, 3rem) scale(1.15); } }
+
+/* アイコンの中の図形（丸・四角・棒）を背景に浮かべます */
+.shapes span { position: absolute; z-index: -1; background: var(--accent); opacity: .14; animation: float 9s ease-in-out infinite; }
+.shapes .c { width: 64px; height: 64px; border-radius: 50%; top: 18%; left: 12%; }
+.shapes .s { width: 54px; height: 54px; border-radius: 14px; top: 26%; right: 13%; animation-delay: -3s; animation-duration: 11s; }
+.shapes .b { width: 90px; height: 22px; border-radius: 11px; bottom: 18%; left: 20%; animation-delay: -6s; animation-duration: 10s; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-18px) rotate(8deg); } }
+
+/* 読み込み時に、アイコン → 名前 → 説明 → ボタンの順に現れます */
+.hero img { animation: pop .9s cubic-bezier(.2, .9, .3, 1.4) both, bob 6s ease-in-out 1.2s infinite; border-radius: 26px; box-shadow: 0 18px 40px -16px rgba(185, 83, 61, .55); }
+.hero h1, .hero .lead, .hero .store, .hero .note { animation: rise .8s cubic-bezier(.2, .8, .2, 1) both; }
+.hero h1 { animation-delay: .25s; }
+.hero .lead { animation-delay: .4s; }
+.hero .store { animation-delay: .55s; }
+.hero .note { animation-delay: .7s; }
+@keyframes pop { from { opacity: 0; transform: scale(.4) rotate(-12deg); } to { opacity: 1; transform: none; } }
+@keyframes bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -8px; } }
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+/* App Storeボタン：光が横切り、触れると浮き上がります */
+.hero .store { position: relative; overflow: hidden; transition: transform .25s, box-shadow .25s; box-shadow: 0 10px 24px -12px rgba(0, 0, 0, .5); }
+.hero .store::after {
+  content: ""; position: absolute; inset: 0; transform: translateX(-120%) skewX(-20deg);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .45), transparent);
+  animation: shine 4.5s ease-in-out 1.6s infinite;
+}
+.hero .store:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 16px 30px -12px rgba(0, 0, 0, .55); }
+@keyframes shine { 0%, 60% { transform: translateX(-120%) skewX(-20deg); } 100% { transform: translateX(160%) skewX(-20deg); } }
+
+/* カード：触れると浮き上がり、絵文字が揺れます */
+.card { transition: transform .3s cubic-bezier(.2, .8, .2, 1), box-shadow .3s; }
+.card:hover { transform: translateY(-6px); box-shadow: 0 18px 36px -20px rgba(80, 40, 20, .45); }
+.card .emoji { transition: transform .4s cubic-bezier(.2, .9, .3, 1.6); transform-origin: 50% 80%; }
+.card:hover .emoji { transform: rotate(-12deg) scale(1.25); }
+
+/* 見出しの下に、アクセント色の線を伸ばします */
+h2 { position: relative; display: inline-block; }
+h2::after { content: ""; position: absolute; left: 0; bottom: -4px; height: 3px; width: 100%; border-radius: 2px; background: var(--accent); transform-origin: left; }
+
+/* Proのタグをゆっくり輝かせます */
+.tag:not(.free) { background: linear-gradient(110deg, var(--accent) 40%, #F2A98F 50%, var(--accent) 60%); background-size: 250% 100%; animation: glint 3.5s linear infinite; }
+@keyframes glint { from { background-position: 100% 0; } to { background-position: -150% 0; } }
+
+/* スクロールで画面に入ったときに現れます（対応ブラウザのみ。非対応ではそのまま表示します） */
+@supports (animation-timeline: view()) {
+  .card, h2, dl > dt, dl > dd {
+    animation: reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 28%;
+  }
+  .grid .card:nth-child(even) { animation-range: entry 8% cover 34%; }
+  h2::after { animation: grow linear both; animation-timeline: view(); animation-range: entry 20% cover 40%; }
+}
+@keyframes reveal { from { opacity: 0; transform: translateY(40px) scale(.96); } to { opacity: 1; transform: none; } }
+@keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* 動きを減らす設定のときは、動きを止めます */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
 </style>
 </head>
 <body>
 <header class="hero wrap">
+<div class="shapes" aria-hidden="true"><span class="c"></span><span class="s"></span><span class="b"></span></div>
 <img src="images/icon-512.png" alt="ものクログのアイコン">
 <h1>ものクログ</h1>
 <p class="lead">持ち物・欲しい物・手放した物を、写真や使用記録と一緒に。<br>よく使う物も、しまい込んだ物も、ひと目で分かるコレクション管理アプリです。</p>
