@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["XD26H5SSQL.io.github.kai-qaz.monoklog"],
+        "components": [
+          { "/": "/monoklog/join", "comment": "ものクログのグループ招待リンク" },
+          { "/": "/monoklog/join/", "comment": "ものクログのグループ招待リンク" }
+        ]
+      }
+    ]
+  }
+}
