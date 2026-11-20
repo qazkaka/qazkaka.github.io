@@ -15,26 +15,90 @@
 <meta property="og:title" content="ものクログ サポート">
 <meta property="og:url" content="https://qazkaka.github.io/monoklog/support.html">
 <style>
-:root { color-scheme: light dark; }
-body { margin: 0 auto; padding: 24px; max-width: 52rem; font: 1rem/1.85 -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif; background: Canvas; color: CanvasText; overflow-wrap: anywhere; }
-h1 { font-size: 1.65rem; line-height: 1.5; }
-h2 { margin-top: 2.2rem; font-size: 1.15rem; line-height: 1.6; }
-h3 { margin-top: 1.6rem; font-size: 1rem; }
-a { color: LinkText; text-underline-offset: .18em; }
+:root {
+  color-scheme: light dark;
+  --bg: #FAF5EC; --bg2: #F3EADC; --card: #FFFFFF; --text: #2F2621; --sub: #75655A; --accent: #B9533D; --accent-soft: #F6E3DA; --line: #EADFD0; --on-accent: #FFFFFF;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #15110F; --bg2: #1C1714; --card: #221C19; --text: #F3ECE4; --sub: #B5A79C; --accent: #E58B71; --accent-soft: #3A2620; --line: #3A302A; --on-accent: #1A1210; }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 1rem/1.85 -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif; overflow-wrap: anywhere; }
+main { max-width: 52rem; margin: 0 auto; padding: 32px 16px 56px; }
+a { color: var(--accent); text-underline-offset: .18em; }
+
+/* 見出し */
+.hero { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+.hero img { width: 64px; height: 64px; border-radius: 15px; box-shadow: 0 12px 28px -14px rgba(185, 83, 61, .6); }
+.eyebrow { display: block; color: var(--accent); font-size: .8rem; font-weight: 800; letter-spacing: .16em; }
+h1 { margin: 0; font-size: clamp(1.6rem, 4.5vw, 2.1rem); line-height: 1.35; }
+.lead { color: var(--sub); margin: 12px 0 20px; }
+
+/* ページ内の目次 */
+.toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 32px; padding: 0; list-style: none; }
+.toc a { display: inline-block; padding: 6px 14px; border-radius: 999px; background: var(--card); border: 1px solid var(--line); color: var(--text); font-size: .88rem; font-weight: 600; text-decoration: none; }
+.toc a:hover { border-color: var(--accent); color: var(--accent); }
+
+/* 大見出し：左にアクセントの線 */
+h2 { position: relative; margin: 44px 0 16px; padding-left: 14px; font-size: 1.3rem; line-height: 1.5; }
+h2::before { content: ""; position: absolute; left: 0; top: .2em; bottom: .2em; width: 5px; border-radius: 3px; background: var(--accent); }
+
+/* 枠 */
+.panel { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 20px 22px; }
+.panel h2 { margin-top: 0; }
+.panel + .panel { margin-top: 16px; }
+.panel p:last-child, .qa p:last-child, .qa ul:last-child { margin-bottom: 0; }
+.panel ul, .qa ul { padding-left: 1.3em; }
+
+/* メールのボタン */
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 999px; background: var(--accent); color: var(--on-accent); font-weight: 700; text-decoration: none; }
+.btn:hover { filter: brightness(1.06); }
+
+/* よくある質問：1問ずつカード。質問は太字＋Qの印、答えは少し落とした色 */
+.group-title { margin: 28px 0 12px; color: var(--sub); font-size: .85rem; font-weight: 800; letter-spacing: .12em; }
+.qa { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px 20px; margin-bottom: 12px; }
+.qa h3 { display: flex; align-items: baseline; gap: 10px; margin: 0 0 8px; font-size: 1.02rem; line-height: 1.6; }
+.qa h3::before { content: "Q"; flex: none; display: inline-grid; place-items: center; width: 1.7em; height: 1.7em; border-radius: 50%; background: var(--accent); color: var(--on-accent); font-size: .8rem; font-weight: 800; transform: translateY(-.1em); }
+.qa p, .qa li { color: var(--sub); }
+.qa strong, .qa a { color: var(--accent); }
+.ver { flex: none; margin-left: auto; padding: 1px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: .72rem; font-weight: 700; white-space: nowrap; }
+
+h2 .ver { margin-left: 10px; vertical-align: .2em; }
+footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--sub); font-size: .9rem; }
 </style>
 </head>
 <body>
 <main>
-<h1>ものクログ サポート</h1>
-<p>使い方のご質問、不具合のご報告、不適切な広告の報告を受け付けています。お問い合わせの前に、よくある質問もご確認ください。</p>
+<div class="hero">
+<img src="images/icon-512.png" alt="">
+<div><span class="eyebrow">SUPPORT</span><h1>ものクログ サポート</h1></div>
+</div>
+<p class="lead">使い方のご質問、不具合のご報告、グループの不適切な投稿や広告の報告を受け付けています。お問い合わせの前に、よくある質問もご確認ください。</p>
+<ul class="toc">
+<li><a href="#contact">お問い合わせ</a></li>
+<li><a href="#group-report">グループの通報</a></li>
+<li><a href="#ad-report">広告の報告</a></li>
+<li><a href="#faq-group">グループのよくある質問</a></li>
+<li><a href="#faq">よくある質問</a></li>
+</ul>
 
-<h2>お問い合わせ</h2>
-<p><a href="mailto:qazappinfo@gmail.com">メールで問い合わせる</a>（qazappinfo@gmail.com）</p>
+<section class="panel">
+<h2 id="contact">お問い合わせ</h2>
+<p><a class="btn" href="mailto:qazappinfo@gmail.com">✉︎ メールで問い合わせる</a></p>
 <p>不具合のご報告では、お使いの端末・iOSのバージョン・アプリのバージョン（「設定」の一番下に表示）と、起きたときの操作を添えていただくと、調査がスムーズです。写真やバックアップファイルは、こちらからお願いした場合を除き送らないでください。</p>
+</section>
 
+<section class="panel">
+<h2 id="group-report">グループの不適切な投稿・利用者の報告<span class="ver">1.5〜</span></h2>
+<p>グループで、不快・不適切な投稿やコメント、嫌がらせをする利用者を見かけた場合は、アプリから通報してください。投稿は長押し（または「…」）、コメントとメンバーは「…」から「通報する」を選びます。通報したことは、相手やほかのメンバーには知らされません。</p>
+<p>内容を確認し、利用規約に反している場合は、その利用者を利用停止にします。利用停止になった人の投稿はほかの利用者に表示されず、グループにも参加できなくなります。急ぎの場合や、通報で伝えきれない場合は<a href="mailto:qazappinfo@gmail.com">メール</a>でご連絡ください。</p>
+</section>
+
+<section class="panel">
 <h2 id="ad-report">不適切な広告の報告</h2>
 <p>無料版で表示される広告に、不快・不適切な内容や、誤解を招く内容がありましたらお知らせください。内容を確認し、該当する広告や広告主の表示を停止します。</p>
-<p><a href="mailto:qazappinfo@gmail.com?subject=%E4%B8%8D%E9%81%A9%E5%88%87%E3%81%AA%E5%BA%83%E5%91%8A%E3%81%AE%E5%A0%B1%E5%91%8A&amp;body=%E5%BA%83%E5%91%8A%E3%81%AE%E5%86%85%E5%AE%B9%EF%BC%88%E5%BA%83%E5%91%8A%E4%B8%BB%E5%90%8D%E3%83%BB%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%81%9F%E6%96%87%E8%A8%80%E3%81%AA%E3%81%A9%EF%BC%89%EF%BC%9A%0A%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%81%9F%E7%94%BB%E9%9D%A2%EF%BC%88%E3%82%B3%E3%83%AC%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%BB%E6%AC%B2%E3%81%97%E3%81%84%E7%89%A9%E3%83%BB%E3%82%BF%E3%82%A4%E3%83%A0%E3%83%A9%E3%82%A4%E3%83%B3%E3%83%BB%E7%B5%B1%E8%A8%88%E3%83%BB%E8%A8%AD%E5%AE%9A%EF%BC%89%EF%BC%9A%0A%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%81%9F%E6%97%A5%E6%99%82%EF%BC%9A%0A%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AE%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%EF%BC%88%E3%80%8C%E8%A8%AD%E5%AE%9A%E3%80%8D%E3%81%AE%E4%B8%80%E7%95%AA%E4%B8%8B%EF%BC%89%EF%BC%9A%0A%0A%E2%80%BB%E5%8F%AF%E8%83%BD%E3%81%A7%E3%81%82%E3%82%8C%E3%81%B0%E3%80%81%E5%BA%83%E5%91%8A%E3%81%8C%E5%86%99%E3%81%A3%E3%81%9F%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%E3%82%92%E6%B7%BB%E4%BB%98%E3%81%97%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%0A">メールで広告を報告する</a>（qazappinfo@gmail.com）</p>
+<p><a class="btn" href="mailto:qazappinfo@gmail.com?subject=%E4%B8%8D%E9%81%A9%E5%88%87%E3%81%AA%E5%BA%83%E5%91%8A%E3%81%AE%E5%A0%B1%E5%91%8A&amp;body=%E5%BA%83%E5%91%8A%E3%81%AE%E5%86%85%E5%AE%B9%EF%BC%88%E5%BA%83%E5%91%8A%E4%B8%BB%E5%90%8D%E3%83%BB%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%81%9F%E6%96%87%E8%A8%80%E3%81%AA%E3%81%A9%EF%BC%89%EF%BC%9A%0A%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%81%9F%E7%94%BB%E9%9D%A2%EF%BC%88%E3%82%B3%E3%83%AC%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%BB%E6%AC%B2%E3%81%97%E3%81%84%E7%89%A9%E3%83%BB%E3%82%BF%E3%82%A4%E3%83%A0%E3%83%A9%E3%82%A4%E3%83%B3%E3%83%BB%E7%B5%B1%E8%A8%88%E3%83%BB%E8%A8%AD%E5%AE%9A%EF%BC%89%EF%BC%9A%0A%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%81%9F%E6%97%A5%E6%99%82%EF%BC%9A%0A%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AE%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%EF%BC%88%E3%80%8C%E8%A8%AD%E5%AE%9A%E3%80%8D%E3%81%AE%E4%B8%80%E7%95%AA%E4%B8%8B%EF%BC%89%EF%BC%9A%0A%0A%E2%80%BB%E5%8F%AF%E8%83%BD%E3%81%A7%E3%81%82%E3%82%8C%E3%81%B0%E3%80%81%E5%BA%83%E5%91%8A%E3%81%8C%E5%86%99%E3%81%A3%E3%81%9F%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%E3%82%92%E6%B7%BB%E4%BB%98%E3%81%97%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%0A">✉︎ メールで広告を報告する</a></p>
 <p>次の情報を添えていただくと、特定がスムーズです。</p>
 <ul>
 <li>広告の内容（広告主名・表示された文言など）</li>
@@ -43,50 +107,112 @@ a { color: LinkText; text-underline-offset: .18em; }
 <li>可能であれば、広告が写ったスクリーンショット</li>
 </ul>
 <p>ものクログ Proでは広告は表示されません。</p>
+</section>
 
-<h2>よくある質問</h2>
+<h2 id="faq">よくある質問</h2>
 
+<p class="group-title" id="faq-group">グループ</p>
+<article class="qa">
+<h3>グループとは何ですか？<span class="ver">1.5〜</span></h3>
+<p>招待した人どうしで、コレクションに加えた物・欲しい物・使った記録をタイムラインで見せ合える機能です。投稿には、いいねやコメントができます。グループを作るにはものクログ Proが必要で、招待されたグループへの参加は無料です。1つのグループは10人まで、参加できるグループは作ったもの・申請中を含めて5つまでです。iCloudへのサインインが必要です。</p>
+</article>
+<article class="qa">
+<h3>グループに参加するには？<span class="ver">1.5〜</span></h3>
+<p>グループのリーダーから届いた招待リンクを開き、表示名を決めて「申請」します。リーダーが承認すると参加でき、投稿が見られるようになります。招待リンクを受け取っている場合は、「タイムライン」左上のグループのボタン → 「招待リンクから参加する」から貼り付けることもできます。</p>
+</article>
+<article class="qa">
+<h3>招待リンクを開いても参加できません<span class="ver">1.5〜</span></h3>
+<p>次の点をご確認ください。</p>
+<ul>
+<li>招待リンクは作ってから24時間有効です。期限が切れたときや、リーダーが受付を締め切ったときは、新しいリンクをリーダーに作ってもらってください。</li>
+<li>iPhoneの「設定」でiCloudにサインインしているか。</li>
+<li>グループがすでに10人になっていないか、あなたの参加しているグループが5つになっていないか。</li>
+<li>申請のあとは、リーダーの承認を待つ必要があります。承認されると通知でお知らせします。</li>
+</ul>
+</article>
+<article class="qa">
+<h3>グループに投稿した内容は誰が見られますか？<span class="ver">1.5〜</span></h3>
+<p>そのグループのメンバーだけです。投稿・いいね・コメントは、書いた人自身のiCloudに保存し、Appleの共有の仕組みでメンバーだけが読めるようにしています。開発者が内容を見ることはありません。Apple Accountの名前やメールアドレスは、ほかのメンバーに伝わりません。価格・メモ・保管場所など、投稿に載せていない情報は共有されません。</p>
+</article>
+<article class="qa">
+<h3>相手をブロックしたい／ブロックを解除したい<span class="ver">1.5〜</span></h3>
+<p>投稿やコメントの「…」、またはグループのメンバーの「…」から「この人をブロック」を選びます。ブロックした人の投稿とコメントは、あなたのアプリに表示されなくなります。相手には知らされません。解除は「タイムライン」左上のグループのボタン → 「グループの設定」 → ブロックしている人の「解除」から行えます。</p>
+</article>
+<article class="qa">
+<h3>自分の投稿やコメントを消したい／グループから抜けたい<span class="ver">1.5〜</span></h3>
+<p>自分の投稿は長押し（または詳細画面の「…」）から「投稿を削除」、コメントは「…」から「コメントを削除」で消せます。グループから抜けるには、グループの画面の一番下にある「グループから抜ける」を選びます。抜けると、そのグループにあるあなたの投稿・いいね・コメントは削除されます。リーダーは「グループを解散する」を選べます。解散すると、すべてのメンバーがそのグループを見られなくなります。</p>
+</article>
+<article class="qa">
+<h3>グループの写真が消えました<span class="ver">1.5〜</span></h3>
+<p>グループに投稿した写真は、投稿した人が「グループの設定」で選んだ保存期間（30日・90日・1年・無期限。初期設定は1年）を過ぎると自動で削除されます。投稿の文字は残ります。お手元のコレクションの写真は削除されません。</p>
+</article>
+<article class="qa">
+<h3>グループのお知らせを止めたい<span class="ver">1.5〜</span></h3>
+<p>「タイムライン」左上のグループのボタン → 「グループの設定」で「新しい投稿・申請を通知」をオフにします。お知らせには、投稿の本文や写真は表示されません。</p>
+</article>
+<article class="qa">
+<h3>リーダーがProをやめたら、グループはどうなりますか？<span class="ver">1.5〜</span></h3>
+<p>リーダーのProが有効でなくなると、グループは閉鎖され、投稿は表示されなくなります（データは残っています）。メンバーは、閉鎖中もグループから抜けることができます。リーダーがProを購入し直すと、グループは再開します。リーダーは、閉鎖される前に「リーダーを任せる」で、ほかのメンバーにリーダーを交代することもできます。</p>
+</article>
+
+<p class="group-title">そのほか</p>
+<article class="qa">
 <h3>機種変更のとき、データを移すには？</h3>
 <p>元の端末で「設定 → データ → コレクションを書き出す」からバックアップファイルを保存し、新しい端末の「設定 → データ → バックアップを読み込む」で読み込みます。写真・使用記録・入力候補・保存した絞り込み条件も移ります。</p>
 <p>ものクログ Proで「iCloudに自動でバックアップ」をオンにしている場合は、新しい端末の「設定 → iCloudバックアップ → iCloudのバックアップから復元」から読み込めます。</p>
-
+</article>
+<article class="qa">
 <h3>バックアップを読み込むと、今のデータはどうなりますか？</h3>
 <p>まだ登録していない商品は追加されます。すでに登録済みの商品が含まれる場合は、「未登録の商品だけ追加」か「登録済みの商品も上書き」を選べます。上書きは取り消せないため、必要なら先に現在のデータを書き出してください。</p>
-
+</article>
+<article class="qa">
 <h3>iCloudの自動バックアップはどこに保存されますか？</h3>
 <p>お使いのApple AccountのiCloud Driveに保存され、「ファイル」アプリの「iCloud Drive → ものクログ」から確認できます。最新の5件を残し、古いものは自動で削除します。iCloudの容量を使用します。</p>
-
+</article>
+<article class="qa">
 <h3>Proを購入したのに有効になりません／機種変更でProを戻したい</h3>
 <p>「設定 → ものクログ Pro → 購入を復元」をお試しください。購入時と同じApple Accountでサインインしている必要があります。購入は買い切りで、月額料金はかかりません。</p>
-
+</article>
+<article class="qa">
 <h3>無料版でいくつまで登録できますか？</h3>
 <p>持っている物・欲しい物・手放した物の合計で10件まで登録できます。上限に達した後も、登録済みの商品の閲覧・編集・使用記録・バックアップは引き続き使えます。</p>
-
+</article>
+<article class="qa">
 <h3>発売日の通知が届きません</h3>
 <p>iPhoneの「設定 → 通知 → ものクログ」で通知が許可されているかご確認ください。発売時刻を登録していない商品は、発売日の9:00を基準に通知します。</p>
-
+</article>
+<article class="qa">
 <h3>「データを読み込めませんでした」と表示されます</h3>
 <p>保存されているデータは削除されていません。まず端末を再起動し、「もう一度試す」をお試しください。解決しない場合は、同じ画面の「データファイルを書き出す」でファイルを保存したうえで、メールでご連絡ください。</p>
-
+</article>
+<article class="qa">
 <h3>データをすべて削除したい</h3>
 <p>iPhoneでアプリを削除すると、端末内のデータはすべて削除されます。書き出したバックアップファイルやiCloud Driveのバックアップは、それぞれ保存先から削除してください。</p>
-
+</article>
+<article class="qa">
 <h3>不適切な広告を見かけました</h3>
 <p>アプリの「設定 → プライバシー → 不適切な広告を報告」、またはこのページの<a href="#ad-report">不適切な広告の報告</a>からメールでご報告ください。ものクログ Proでは広告は表示されません。</p>
-
-<h3>シリーズはどこで登録しますか？<small>（バージョン1.3以降）</small></h3>
+</article>
+<article class="qa">
+<h3>シリーズはどこで登録しますか？<span class="ver">1.3〜</span></h3>
 <p>商品の編集画面で「メーカー・ブランド」を選ぶと、その下の「シリーズ」で選べます（例：NIKE › エア ジョーダン）。シリーズの候補は「設定 → 入力候補の管理 → ブランド・メーカー」でブランドをタップすると、追加・名前の変更・削除ができます。ブランドを変えると、シリーズは外れます。</p>
-
-<h3>ブランドやシリーズごとに一覧で見たい<small>（バージョン1.3以降）</small></h3>
+</article>
+<article class="qa">
+<h3>ブランドやシリーズごとに一覧で見たい<span class="ver">1.3〜</span></h3>
 <p>「コレクション」上部の「カテゴリ」を開き、メーカー・ブランドをタップするとシリーズが並びます。シリーズをタップすると、そのシリーズの商品を写真で並べた画面になり、よく使う順・最近使った順などに並べ替えられます。右上のボタンから、いつもの一覧で表示することもできます。</p>
-
-<h3>型番やメモをコピーしたい<small>（バージョン1.3以降）</small></h3>
+</article>
+<article class="qa">
+<h3>型番やメモをコピーしたい<span class="ver">1.3〜</span></h3>
 <p>商品の詳細画面で、商品名・登録情報の値・メモを長押しすると、範囲を選んでコピーできます。</p>
-
+</article>
+<article class="qa">
 <h3>アプリの色を変えたい</h3>
 <p>「設定 → 表示 → 外観」で「端末に合わせる／ライト／ダーク」を選べます。ものクログ Proでは「カスタム」を選び、背景・カード・文字・アクセントの色を自由に設定できます。</p>
+</article>
 
+<footer>
 <p><a href="PrivacyPolicy.html">プライバシーポリシー</a> ／ <a href="./">ものクログ トップ</a></p>
+</footer>
 </main>
 </body>
 </html>
