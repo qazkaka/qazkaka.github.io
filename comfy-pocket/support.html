@@ -75,8 +75,10 @@ footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line);
 
 <h2 id="extension">PCのファイルを管理する（任意）</h2>
 <div class="card">
-<p>サーバー設定の「ファイル管理」で、ComfyUIの出力・入力画像の一覧を表示できます。PCのフォルダーを直接一覧にしたり削除したりするには、拡張ノード <code>comfy_pocket_files</code> をComfyUIの <code>custom_nodes</code> フォルダーに入れて、ComfyUIを再起動してください。</p>
-<p class="note">拡張ノードの配布は準備中です。公開したら、このページでお知らせします。</p>
+<p>サーバー設定の「ファイル管理」で、ComfyUIの出力・入力画像の一覧を表示できます。PCのフォルダーを直接一覧にしたり削除したりするには、拡張ノード <a href="https://github.com/qazkaka/comfy-pocket-files">comfy-pocket-files</a> をComfyUIの <code>custom_nodes</code> フォルダーに入れて、ComfyUIを再起動してください。</p>
+<p><code>cd ComfyUI/custom_nodes</code><br><code>git clone https://github.com/qazkaka/comfy-pocket-files.git</code></p>
+<p>PCのファイルの削除は、初期状態では無効です。使う場合は、拡張ノードのフォルダーに <code>config.json</code> を作り、<code>{"allow_delete": true}</code> と書いてください。</p>
+<p class="note">ComfyUIに接続できる人は誰でもファイルを一覧でき、削除を許可していれば削除もできます。インターネットに公開する場合は、必ず認証を設定してください。</p>
 </div>
 
 <p class="note">Comfy PocketはComfyUIに対応した非公式のクライアントです。ComfyUIの開発元とは関係ありません。</p>
