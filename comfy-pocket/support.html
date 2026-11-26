@@ -1,16 +1,18 @@
 <!doctype html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self'; base-uri 'none'; form-action 'none'">
-<title>Comfy Pocket サポート</title>
+<link rel="alternate" hreflang="en" href="https://qazkaka.github.io/comfy-pocket/support.html">
+<link rel="alternate" hreflang="ja" href="https://qazkaka.github.io/comfy-pocket/ja/support.html">
+<title>Comfy Pocket Support</title>
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Comfy Pocket">
-<meta property="og:title" content="Comfy Pocket サポート">
+<meta property="og:title" content="Comfy Pocket Support">
 <meta property="og:url" content="https://qazkaka.github.io/comfy-pocket/support.html">
 <meta property="og:image" content="https://qazkaka.github.io/comfy-pocket/images/icon-512.png">
 <meta name="twitter:card" content="summary">
@@ -23,7 +25,7 @@
   :root { --bg: #121118; --card: #1D1B26; --text: #EEEBF7; --sub: #A9A4BC; --accent: #A5A3FF; --accent-soft: #2A2840; --line: #2F2C3D; --code: #26232F; --on-accent: #15131F; }
 }
 * { box-sizing: border-box; }
-body { margin: 0; background: var(--bg); color: var(--text); font: 1rem/1.85 -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif; overflow-wrap: anywhere; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 1rem/1.85 -apple-system, BlinkMacSystemFont, sans-serif; overflow-wrap: anywhere; }
 main { max-width: 52rem; margin: 0 auto; padding: 32px 16px 56px; }
 a { color: var(--accent); text-underline-offset: .18em; }
 .hero { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
@@ -37,54 +39,60 @@ code { background: var(--code); padding: 1px 6px; border-radius: 6px; font-size:
 .btn { display: inline-block; padding: 10px 18px; border-radius: 999px; background: var(--accent); color: var(--on-accent); text-decoration: none; font-weight: 700; }
 .note { color: var(--sub); font-size: .9rem; }
 footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--sub); font-size: .9rem; }
+.lang { display: flex; justify-content: flex-end; gap: 4px; margin: -16px 0 16px; font-size: .9rem; }
+.lang a, .lang strong { padding: 4px 12px; border-radius: 999px; text-decoration: none; }
+.lang strong { background: var(--line); color: var(--text); }
 </style>
 </head>
 <body>
 <main>
+<nav class="lang" aria-label="Language"><strong aria-current="page">English</strong><a href="ja/support.html" hreflang="ja" lang="ja">日本語</a></nav>
 <div class="hero">
 <img src="images/icon-512.png" alt="">
-<h1>Comfy Pocket サポート</h1>
+<h1>Comfy Pocket Support</h1>
 </div>
-<p class="lead">使い方のご質問や不具合のご報告を受け付けています。お問い合わせの前に、よくある質問もご確認ください。</p>
+<p class="lead">Questions about using the app and bug reports are welcome. Please check the FAQ below first.</p>
 
-<h2 id="contact">お問い合わせ</h2>
-<p><a class="btn" href="mailto:qazappinfo@gmail.com?subject=Comfy%20Pocket%20%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">✉︎ メールで問い合わせる</a></p>
-<p class="note">不具合のご報告では、端末の機種とiOSのバージョン、アプリのバージョン、ComfyUIの接続方法（同じWi-Fi・VPNなど）をお書き添えください。</p>
+<h2 id="contact">Contact</h2>
+<p><a class="btn" href="mailto:qazappinfo@gmail.com?subject=Comfy%20Pocket%20support">✉︎ Email us</a></p>
+<p class="note">When reporting a bug, please include your device model, iOS version, app version, and how you connect to ComfyUI (same Wi-Fi, VPN, etc.).</p>
 
-<h2>はじめに</h2>
+<h2>Getting started</h2>
 <div class="card">
 <ol>
-<li>PCでComfyUIを起動し、iPhoneから届くようにします。同じWi-Fiで使う場合は、ComfyUIの起動オプションに <code>--listen 0.0.0.0</code> を付け、PCのファイアウォールでポート（通常8188）を許可します。</li>
-<li>アプリの「サーバーを追加」で <code>http://PCのIPアドレス:8188</code> を入力し、「接続をテスト」を押します。</li>
-<li>ComfyUIの「Export (API)」で書き出したワークフローのJSONを取り込むか、「サンプルから追加」を使います。</li>
-<li>ワークフローを開いて入力し、「実行」を押します。</li>
+<li>Start ComfyUI on your PC and make it reachable from your iPhone. On the same Wi-Fi, start ComfyUI with <code>--listen 0.0.0.0</code> and allow its port (usually 8188) in your PC's firewall.</li>
+<li>In the app, add a server, enter <code>http://YOUR-PC-IP:8188</code>, and test the connection.</li>
+<li>Import a workflow JSON exported with ComfyUI's “Export (API)”, or add one from the samples.</li>
+<li>Open the workflow, fill in the fields, and tap Run.</li>
 </ol>
 </div>
 
-<h2>よくある質問</h2>
+<h2>FAQ</h2>
 <div class="card">
-<h3>接続できません</h3>
-<p>iPhoneとPCが同じネットワークにあるか確認してください。ゲストWi-Fiでは端末どうしの通信ができないことがあります。iPhoneの「設定」→「プライバシーとセキュリティ」→「ローカルネットワーク」で、Comfy Pocketを許可してください。</p>
-<h3>外出先から使いたい</h3>
-<p>TailscaleなどのVPNや、HTTPSのリバースプロキシを使ってください。インターネットに公開する場合は、必ず認証を設定してください。アプリはBearerトークンによる認証に対応しています。</p>
-<h3>「接続先に必要なノードがありません」と表示されます</h3>
-<p>ワークフローが使っているカスタムノードやモデルが、接続先のComfyUIに入っていません。ComfyUI側で導入してから、もう一度実行してください。</p>
-<h3>アプリはAIで画像を生成しますか</h3>
-<p>いいえ。生成はすべて、登録したComfyUIのサーバーで行います。使うモデルやカスタムノードは、ComfyUI側で用意してください。</p>
+<h3>I can't connect</h3>
+<p>Make sure your iPhone and PC are on the same network. Guest Wi-Fi often blocks devices from talking to each other. In iPhone Settings → Privacy &amp; Security → Local Network, allow Comfy Pocket.</p>
+<h3>I want to use it away from home</h3>
+<p>Use a VPN such as Tailscale, or an HTTPS reverse proxy. If you expose ComfyUI to the internet, always set up authentication. The app supports Bearer token authentication.</p>
+<h3>The app says the server is missing required nodes</h3>
+<p>The workflow uses custom nodes or models that aren't installed in the ComfyUI you're connected to. Install them in ComfyUI and run again.</p>
+<h3>Does the app generate images with AI?</h3>
+<p>No. All generation happens on the ComfyUI servers you add. Install the models and custom nodes you need in ComfyUI.</p>
+<h3>Is the app available in English?</h3>
+<p>The app's interface is currently in Japanese. Workflows, prompts and results work in any language.</p>
 </div>
 
-<h2 id="extension">PCのファイルを管理する（任意）</h2>
+<h2 id="extension">Managing files on your PC (optional)</h2>
 <div class="card">
-<p>サーバー設定の「ファイル管理」で、ComfyUIの出力・入力画像の一覧を表示できます。PCのフォルダーを直接一覧にしたり削除したりするには、拡張ノード <a href="https://github.com/qazkaka/comfy-pocket-files">comfy-pocket-files</a> をComfyUIの <code>custom_nodes</code> フォルダーに入れて、ComfyUIを再起動してください。</p>
+<p>In a server's file management settings, you can list ComfyUI's outputs and input images. To list your PC's folders directly and delete files, install the custom node <a href="https://github.com/qazkaka/comfy-pocket-files">comfy-pocket-files</a> in ComfyUI's <code>custom_nodes</code> folder and restart ComfyUI.</p>
 <p><code>cd ComfyUI/custom_nodes</code><br><code>git clone https://github.com/qazkaka/comfy-pocket-files.git</code></p>
-<p>PCのファイルの削除は、初期状態では無効です。使う場合は、拡張ノードのフォルダーに <code>config.json</code> を作り、<code>{"allow_delete": true}</code> と書いてください。</p>
-<p class="note">ComfyUIに接続できる人は誰でもファイルを一覧でき、削除を許可していれば削除もできます。インターネットに公開する場合は、必ず認証を設定してください。</p>
+<p>Deleting files on your PC is disabled by default. To allow it, create <code>config.json</code> in the node's folder containing <code>{"allow_delete": true}</code>.</p>
+<p class="note">Anyone who can reach your ComfyUI can list your files, and can delete them if deletion is allowed. If you expose ComfyUI to the internet, always set up authentication.</p>
 </div>
 
-<p class="note">Comfy PocketはComfyUIに対応した非公式のクライアントです。ComfyUIの開発元とは関係ありません。</p>
+<p class="note">Comfy Pocket is an unofficial client for ComfyUI and is not affiliated with the ComfyUI developers.</p>
 
 <footer>
-<p><a href="PrivacyPolicy.html">プライバシーポリシー</a> ／ <a href="./">Comfy Pocket トップ</a> ／ <a href="../">qazkaka のアプリ</a></p>
+<p><a href="PrivacyPolicy.html">Privacy Policy</a> · <a href="./">Comfy Pocket home</a> · <a href="../">Apps by qazkaka</a></p>
 </footer>
 </main>
 </body>

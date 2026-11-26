@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self'; base-uri 'none'; form-action 'none'">
+<link rel="alternate" hreflang="en" href="https://qazkaka.github.io/comfy-pocket/">
+<link rel="alternate" hreflang="ja" href="https://qazkaka.github.io/comfy-pocket/ja/">
+<title>Comfy Pocket — 自宅のComfyUIをiPhoneから</title>
+<meta name="description" content="PCで動かしているComfyUIを、iPhone・iPadから操作するクライアントアプリ。写真やプロンプトを送って生成し、結果の保存・共有やPCの出力フォルダーの整理までスマホで。">
+<link rel="icon" type="image/png" href="../images/favicon.png">
+<link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Comfy Pocket">
+<meta property="og:title" content="Comfy Pocket — 自宅のComfyUIをiPhoneから">
+<meta property="og:description" content="PCで動かしているComfyUIを、iPhone・iPadから操作するクライアントアプリ。">
+<meta property="og:url" content="https://qazkaka.github.io/comfy-pocket/ja/">
+<meta property="og:image" content="https://qazkaka.github.io/comfy-pocket/images/icon-512.png">
+<meta name="twitter:card" content="summary">
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #F5F4FA; --card: #FFFFFF; --text: #1F1B2E; --sub: #67627A; --accent: #5856D6; --accent-soft: #E9E7FB; --line: #E3E0F0;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #121118; --card: #1D1B26; --text: #EEEBF7; --sub: #A9A4BC; --accent: #A5A3FF; --accent-soft: #2A2840; --line: #2F2C3D; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 1rem/1.85 -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif; overflow-wrap: anywhere; }
+main { max-width: 52rem; margin: 0 auto; padding: 40px 16px 56px; }
+a { color: var(--accent); text-underline-offset: .18em; }
+.hero { display: flex; align-items: center; gap: 18px; }
+.hero img { width: 80px; height: 80px; border-radius: 18px; box-shadow: 0 12px 28px -14px rgba(88, 86, 214, .6); flex: none; }
+.hero h1 { margin: 0; font-size: 1.9rem; line-height: 1.2; }
+.hero p { margin: 4px 0 0; color: var(--sub); }
+.badge { display: inline-block; margin-top: 20px; padding: 6px 14px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-weight: 700; font-size: .9rem; }
+.lead { margin: 20px 0 0; }
+h2 { margin: 44px 0 12px; font-size: 1.3rem; }
+.shots { display: flex; gap: 14px; overflow-x: auto; padding: 4px 2px 14px; scroll-snap-type: x mandatory; }
+.shots img { height: 440px; width: auto; border-radius: 22px; border: 1px solid var(--line); scroll-snap-align: start; flex: none; }
+.shots.ipad img { height: 380px; border-radius: 16px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 12px; }
+.card { background: var(--card); border-radius: 18px; padding: 16px 18px; }
+.card h3 { margin: 0 0 4px; font-size: 1.02rem; }
+.card p { margin: 0; color: var(--sub); font-size: .95rem; }
+ul.plain { padding-left: 1.2em; margin: 0; }
+.note { color: var(--sub); font-size: .9rem; }
+footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--sub); font-size: .9rem; }
+@media (max-width: 520px) { .shots img { height: 380px; } .shots.ipad img { height: 300px; } .hero h1 { font-size: 1.6rem; } }
+.lang { display: flex; justify-content: flex-end; gap: 4px; margin: -16px 0 16px; font-size: .9rem; }
+.lang a, .lang strong { padding: 4px 12px; border-radius: 999px; text-decoration: none; }
+.lang strong { background: var(--line); color: var(--text); }
+</style>
+</head>
+<body>
+<main>
+<nav class="lang" aria-label="Language"><a href="../" hreflang="en" lang="en">English</a><strong aria-current="page">日本語</strong></nav>
+<div class="hero">
+<img src="../images/icon-512.png" alt="Comfy Pocket のアイコン">
+<div>
+<h1>Comfy Pocket</h1>
+<p>自宅のComfyUIを、iPhone・iPadから。</p>
+</div>
+</div>
+<span class="badge">App Storeで公開準備中</span>
+<p class="lead">PCやサーバーで動かしているComfyUIに、写真やプロンプトを送って生成するクライアントアプリです。ComfyUIで書き出したワークフローから入力画面を自動で作り、外出先でも写真を選んで実行するだけで画像生成や画像編集ができます。</p>
+
+<h2>スクリーンショット</h2>
+<div class="shots">
+<img src="../images/screens/iphone-01-server.jpg" alt="サーバー画面。履歴、出力一覧、サーバーの出力、ワークフローが並ぶ">
+<img src="../images/screens/iphone-02-workflow.jpg" alt="ワークフローの入力画面。プロンプトや画像サイズを入力する">
+<img src="../images/screens/iphone-03-result.jpg" alt="実行結果の画面。生成された画像と、入力に使う・写真に保存・共有のボタン">
+<img src="../images/screens/iphone-04-server-outputs.jpg" alt="サーバーの出力フォルダーを3列のグリッドで表示">
+<img src="../images/screens/iphone-05-use-as-input.jpg" alt="生成した画像を次のワークフローの入力に設定した画面">
+</div>
+<div class="shots ipad">
+<img src="../images/screens/ipad-01-server.jpg" alt="iPadのサーバー画面">
+<img src="../images/screens/ipad-02-server-outputs.jpg" alt="iPadで表示したサーバーの出力一覧">
+<img src="../images/screens/ipad-03-output.jpg" alt="iPadで表示した出力の詳細">
+</div>
+<p class="note">画像はデモ用サーバーで撮影したサンプルです。</p>
+
+<h2>できること</h2>
+<div class="grid">
+<div class="card"><h3>ワークフローから入力画面を自動作成</h3><p>「Export (API)」のJSONを取り込むと、プロンプト・Seed・画像などの入力欄を作ります。表示する項目や順序も調整できます。</p></div>
+<div class="card"><h3>写真を送って画像編集</h3><p>写真ライブラリ・ファイル・サーバー上の画像から入力画像を選べます。</p></div>
+<div class="card"><h3>結果をそのまま次の入力に</h3><p>生成した画像を「入力に使う」で、別のワークフローの画像欄に渡せます。</p></div>
+<div class="card"><h3>PCの出力フォルダーを整理</h3><p>サーバーの出力や入力画像を一覧で確認し、保存・共有できます。拡張ノードを入れると削除にも対応します。</p></div>
+<div class="card"><h3>複数サーバーとロック</h3><p>自宅とスタジオなど複数のComfyUIを登録し、サーバーごとにパスワードで保護できます。</p></div>
+<div class="card"><h3>データを集めない設計</h3><p>アカウント不要。入力は登録したサーバーにだけ直接送信され、開発者は情報を収集しません。</p></div>
+</div>
+
+<h2>ご利用に必要なもの</h2>
+<ul class="plain">
+<li>ComfyUIが動いているPCまたはサーバー（このアプリ自体は画像を生成しません）</li>
+<li>iPhone・iPadからそのPCに届くネットワーク（同じWi-Fi、TailscaleなどのVPN、HTTPSのリバースプロキシなど）</li>
+<li>iOS・iPadOS 17以降</li>
+</ul>
+<p class="note">Comfy PocketはComfyUIに対応した非公式のクライアントです。ComfyUIの開発元とは関係ありません。</p>
+
+<footer>
+<p><a href="support.html">サポート</a> ／ <a href="PrivacyPolicy.html">プライバシーポリシー</a> ／ <a href="../../">qazkaka のアプリ</a></p>
+</footer>
+</main>
+</body>
+</html>
