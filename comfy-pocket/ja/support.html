@@ -73,6 +73,7 @@ footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line);
 <p>iPhoneとPCが同じネットワークにあるか確認してください。ゲストWi-Fiでは端末どうしの通信ができないことがあります。iPhoneの「設定」→「プライバシーとセキュリティ」→「ローカルネットワーク」で、Comfy Pocketを許可してください。</p>
 <h3>外出先から使いたい</h3>
 <p>TailscaleなどのVPNや、HTTPSのリバースプロキシを使ってください。インターネットに公開する場合は、必ず認証を設定してください。アプリはBearerトークンによる認証に対応しています。</p>
+<p class="note">HTTPで接続できるのは、IPアドレス（TailscaleのIPを含む）と <code>.local</code> などの家庭内の名前だけです。Tailscaleの <code>〜.ts.net</code> などのドメイン名で接続する場合は、HTTPSを使ってください（Tailscaleでは <code>tailscale serve</code> でHTTPSにできます）。</p>
 <h3>「接続先に必要なノードがありません」と表示されます</h3>
 <p>ワークフローが使っているカスタムノードやモデルが、接続先のComfyUIに入っていません。ComfyUI側で導入してから、もう一度実行してください。</p>
 <h3>アプリはAIで画像を生成しますか</h3>

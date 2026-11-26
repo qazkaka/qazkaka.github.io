@@ -73,6 +73,7 @@ footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line);
 <p>Make sure your iPhone and PC are on the same network. Guest Wi-Fi often blocks devices from talking to each other. In iPhone Settings → Privacy &amp; Security → Local Network, allow Comfy Pocket.</p>
 <h3>I want to use it away from home</h3>
 <p>Use a VPN such as Tailscale, or an HTTPS reverse proxy. If you expose ComfyUI to the internet, always set up authentication. The app supports Bearer token authentication.</p>
+<p class="note">Plain HTTP works only with IP addresses (including Tailscale IPs) and local names such as <code>.local</code>. For domain names, including Tailscale’s <code>…ts.net</code> names, use HTTPS (with Tailscale, <code>tailscale serve</code> provides HTTPS).</p>
 <h3>The app says the server is missing required nodes</h3>
 <p>The workflow uses custom nodes or models that aren't installed in the ComfyUI you're connected to. Install them in ComfyUI and run again.</p>
 <h3>Does the app generate images with AI?</h3>
