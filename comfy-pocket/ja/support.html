@@ -55,12 +55,12 @@ footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line);
 
 <h2 id="contact">お問い合わせ</h2>
 <p><a class="btn" href="mailto:qazappinfo@gmail.com?subject=Comfy%20Pocket%20%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">✉︎ メールで問い合わせる</a></p>
-<p class="note">不具合のご報告では、端末の機種とiOSのバージョン、アプリのバージョン、ComfyUIの接続方法（同じWi-Fi・VPNなど）をお書き添えください。</p>
+<p class="note">不具合のご報告では、端末の機種とiOS・Androidのバージョン、アプリのバージョン、ComfyUIの接続方法（同じWi-Fi・VPNなど）をお書き添えください。</p>
 
 <h2>はじめに</h2>
 <div class="card">
 <ol>
-<li>PCでComfyUIを起動し、iPhoneから届くようにします。同じWi-Fiで使う場合は、ComfyUIの起動オプションに <code>--listen 0.0.0.0</code> を付け、PCのファイアウォールでポート（通常8188）を許可します。</li>
+<li>PCでComfyUIを起動し、スマートフォンから届くようにします。同じWi-Fiで使う場合は、ComfyUIの起動オプションに <code>--listen 0.0.0.0</code> を付け、PCのファイアウォールでポート（通常8188）を許可します。</li>
 <li>アプリの「サーバーを追加」で <code>http://PCのIPアドレス:8188</code> を入力し、「接続をテスト」を押します。</li>
 <li>ComfyUIの「Export (API)」で書き出したワークフローのJSONを取り込むか、「サンプルから追加」を使います。</li>
 <li>ワークフローを開いて入力し、「実行」を押します。</li>
@@ -70,14 +70,24 @@ footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line);
 <h2>よくある質問</h2>
 <div class="card">
 <h3>接続できません</h3>
-<p>iPhoneとPCが同じネットワークにあるか確認してください。ゲストWi-Fiでは端末どうしの通信ができないことがあります。iPhoneの「設定」→「プライバシーとセキュリティ」→「ローカルネットワーク」で、Comfy Pocketを許可してください。</p>
+<p>スマートフォンとPCが同じネットワークにあるか確認してください。ゲストWi-Fiでは端末どうしの通信ができないことがあります。iPhone・iPadでは、「設定」→「プライバシーとセキュリティ」→「ローカルネットワーク」で、Comfy Pocketを許可してください。</p>
 <h3>外出先から使いたい</h3>
 <p>TailscaleなどのVPNや、HTTPSのリバースプロキシを使ってください。インターネットに公開する場合は、必ず認証を設定してください。アプリはBearerトークンによる認証に対応しています。</p>
-<p class="note">HTTPで接続できるのは、IPアドレス（TailscaleのIPを含む）と <code>.local</code> などの家庭内の名前だけです。Tailscaleの <code>〜.ts.net</code> などのドメイン名で接続する場合は、HTTPSを使ってください（Tailscaleでは <code>tailscale serve</code> でHTTPSにできます）。</p>
+<p class="note">iPhone・iPadでHTTPで接続できるのは、IPアドレス（TailscaleのIPを含む）と <code>.local</code> などの家庭内の名前だけです。Tailscaleの <code>〜.ts.net</code> などのドメイン名で接続する場合は、HTTPSを使ってください（Tailscaleでは <code>tailscale serve</code> でHTTPSにできます）。</p>
 <h3>「接続先に必要なノードがありません」と表示されます</h3>
 <p>ワークフローが使っているカスタムノードやモデルが、接続先のComfyUIに入っていません。ComfyUI側で導入してから、もう一度実行してください。</p>
 <h3>アプリはAIで画像を生成しますか</h3>
 <p>いいえ。生成はすべて、登録したComfyUIのサーバーで行います。使うモデルやカスタムノードは、ComfyUI側で用意してください。</p>
+</div>
+
+<h2 id="notifications">生成の通知</h2>
+<div class="card">
+<p>ComfyUIはスマートフォンに通知を送れないため、アプリ自身が実行の状態を確認して表示します。通知は初めてワークフローを実行したときに許可を求めます。あとから変える場合は、アプリの「設定」→「生成の通知」を使ってください。</p>
+<h3>iPhone・iPad</h3>
+<p>実行中は、ロック画面とDynamic Islandのライブアクティビティに進み具合を表示し、終わったら通知します。iOS 26以降は、アプリを閉じても生成が終わるまで確認を続けます（負荷が高いときや、アプリを上にスワイプして終了したときは止まります）。それより前のiOSでは、アプリを閉じてから約30秒で確認が止まり、次にアプリを開いたときに更新されます。</p>
+<h3>Android</h3>
+<p>実行中は通知（ロック画面にも表示）に進み具合を表示し、アプリがバックグラウンドにある間に完了・エラーになったらお知らせします。画像の出力がある場合は、通知に画像も表示します。オンの間は、バックグラウンドでも実行が終わるまで確認を続けます。</p>
+<p class="note">アプリ内ロックを設定したサーバーの実行は、通知にワークフロー名・サーバー名・画像を表示しません。</p>
 </div>
 
 <h2 id="extension">PCのファイルを管理する（任意）</h2>

@@ -7,14 +7,14 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self'; base-uri 'none'; form-action 'none'">
 <link rel="alternate" hreflang="en" href="https://qazkaka.github.io/comfy-pocket/">
 <link rel="alternate" hreflang="ja" href="https://qazkaka.github.io/comfy-pocket/ja/">
-<title>Comfy Pocket — Your ComfyUI, from iPhone</title>
-<meta name="description" content="A client app for the ComfyUI you run on your own PC. Send photos and prompts from iPhone or iPad, then save, share and tidy up results from your phone.">
+<title>Comfy Pocket — Your ComfyUI, from your phone</title>
+<meta name="description" content="A client app for the ComfyUI you run on your own PC. Send photos and prompts from iPhone, iPad or Android, then save, share and tidy up results from your phone.">
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Comfy Pocket">
-<meta property="og:title" content="Comfy Pocket — Your ComfyUI, from iPhone">
-<meta property="og:description" content="A client app for the ComfyUI you run on your own PC. Send photos and prompts from iPhone or iPad, then save, share and tidy up results from your phone.">
+<meta property="og:title" content="Comfy Pocket — Your ComfyUI, from your phone">
+<meta property="og:description" content="A client app for the ComfyUI you run on your own PC. Send photos and prompts from iPhone, iPad or Android, then save, share and tidy up results from your phone.">
 <meta property="og:url" content="https://qazkaka.github.io/comfy-pocket/">
 <meta property="og:image" content="https://qazkaka.github.io/comfy-pocket/images/icon-512.png">
 <meta name="twitter:card" content="summary">
@@ -40,6 +40,8 @@ h2 { margin: 44px 0 12px; font-size: 1.3rem; }
 .shots { display: flex; gap: 14px; overflow-x: auto; padding: 4px 2px 14px; scroll-snap-type: x mandatory; }
 .shots img { height: 440px; width: auto; border-radius: 22px; border: 1px solid var(--line); scroll-snap-align: start; flex: none; }
 .shots.ipad img { height: 380px; border-radius: 16px; }
+.shots.duo img { height: 330px; border-radius: 16px; }
+.shots-label { margin: 18px 0 6px; font-size: .95rem; color: var(--sub); }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 12px; }
 .card { background: var(--card); border-radius: 18px; padding: 16px 18px; }
 .card h3 { margin: 0 0 4px; font-size: 1.02rem; }
@@ -47,7 +49,7 @@ h2 { margin: 44px 0 12px; font-size: 1.3rem; }
 ul.plain { padding-left: 1.2em; margin: 0; }
 .note { color: var(--sub); font-size: .9rem; }
 footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--sub); font-size: .9rem; }
-@media (max-width: 520px) { .shots img { height: 380px; } .shots.ipad img { height: 300px; } .hero h1 { font-size: 1.6rem; } }
+@media (max-width: 520px) { .shots img { height: 380px; } .shots.ipad img { height: 300px; } .shots.duo img { height: 220px; } .hero h1 { font-size: 1.6rem; } }
 .lang { display: flex; justify-content: flex-end; gap: 4px; margin: -16px 0 16px; font-size: .9rem; }
 .lang a, .lang strong { padding: 4px 12px; border-radius: 999px; text-decoration: none; }
 .lang strong { background: var(--line); color: var(--text); }
@@ -60,13 +62,14 @@ footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line);
 <img src="images/icon-512.png" alt="Comfy Pocket icon">
 <div>
 <h1>Comfy Pocket</h1>
-<p>Your own ComfyUI, from iPhone and iPad.</p>
+<p>Your own ComfyUI, from iPhone, iPad and Android.</p>
 </div>
 </div>
-<span class="badge">Coming soon to the App Store</span>
+<span class="badge">Coming soon to the App Store and Google Play</span>
 <p class="lead">Comfy Pocket is a client app for the ComfyUI you run on your own PC or server. It builds input screens from the workflows you export from ComfyUI, so you can generate and edit images from anywhere by picking a photo and tapping Run.</p>
 
 <h2>Screenshots</h2>
+<p class="shots-label">iPhone</p>
 <div class="shots">
 <img src="images/screens/en/iphone-01-server.jpg" alt="Server screen listing history, outputs, server outputs and workflows">
 <img src="images/screens/en/iphone-02-workflow.jpg" alt="Workflow input screen with prompt and image size fields">
@@ -74,10 +77,23 @@ footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line);
 <img src="images/screens/en/iphone-04-server-outputs.jpg" alt="The server's output folder shown in a three-column grid">
 <img src="images/screens/en/iphone-05-use-as-input.jpg" alt="A generated image set as the input of the next workflow">
 </div>
+<p class="shots-label">iPad</p>
 <div class="shots ipad">
 <img src="images/screens/en/ipad-01-server.jpg" alt="Server screen on iPad">
 <img src="images/screens/en/ipad-02-server-outputs.jpg" alt="Server outputs on iPad">
 <img src="images/screens/en/ipad-03-output.jpg" alt="Output details on iPad">
+</div>
+<p class="shots-label">iPhone Duo (large screen, unfolded)</p>
+<div class="shots duo">
+<img src="images/screens/en/duo-01-server.jpg" alt="Server screen on the wide screen of iPhone Duo">
+<img src="images/screens/en/duo-03-result.jpg" alt="Result on iPhone Duo with buttons to use as input, save to Photos and share">
+<img src="images/screens/en/duo-04-server-outputs.jpg" alt="Server outputs in a three-column grid on iPhone Duo">
+</div>
+<p class="shots-label">Android</p>
+<div class="shots">
+<img src="images/screens/en/android-01-server.jpg" alt="Server screen on Android with connection status, workflows and history">
+<img src="images/screens/en/android-02-workflow.jpg" alt="Workflow input screen on Android">
+<img src="images/screens/en/android-03-result.jpg" alt="Result screen on Android">
 </div>
 <p class="note">Screenshots were taken with a demo server and show sample images. The app is available in English and Japanese.</p>
 
@@ -87,6 +103,7 @@ footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line);
 <div class="card"><h3>Edit your photos</h3><p>Pick input images from Photos, Files, or images already on the server.</p></div>
 <div class="card"><h3>Reuse results as input</h3><p>“Use as input” passes a generated image straight to the image field of another workflow.</p></div>
 <div class="card"><h3>Tidy up your PC's output folder</h3><p>Browse, save and share the server's outputs and input images. With the companion custom node, you can also delete them.</p></div>
+<div class="card"><h3>Progress and completion notifications</h3><p>See a run's progress in a Live Activity on iPhone or in a notification on Android, and get notified when it finishes or fails.</p></div>
 <div class="card"><h3>Multiple servers and locks</h3><p>Add several ComfyUI servers, such as home and studio, and protect each one with a passcode.</p></div>
 <div class="card"><h3>No data collection</h3><p>No account needed. Your inputs go straight to the servers you add, and the developer collects nothing.</p></div>
 </div>
@@ -94,8 +111,8 @@ footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line);
 <h2>Requirements</h2>
 <ul class="plain">
 <li>A PC or server running ComfyUI (the app does not generate images by itself)</li>
-<li>A network path from your iPhone or iPad to that PC (the same Wi-Fi, a VPN such as Tailscale, or an HTTPS reverse proxy)</li>
-<li>iOS or iPadOS 17 or later</li>
+<li>A network path from your phone or tablet to that PC (the same Wi-Fi, a VPN such as Tailscale, or an HTTPS reverse proxy)</li>
+<li>iOS or iPadOS 17 or later, or Android 10 or later</li>
 </ul>
 <p class="note">Comfy Pocket is an unofficial client for ComfyUI and is not affiliated with the ComfyUI developers.</p>
 

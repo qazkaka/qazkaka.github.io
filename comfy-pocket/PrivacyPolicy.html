@@ -36,7 +36,7 @@ footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line);
 <main>
 <nav class="lang" aria-label="Language"><strong aria-current="page">English</strong><a href="ja/PrivacyPolicy.html" hreflang="ja" lang="ja">日本語</a></nav>
 <h1>Privacy Policy</h1>
-<p class="muted">Comfy Pocket · Effective: November 26, 2026</p>
+<p class="muted">Comfy Pocket (iPhone, iPad and Android) · Effective: November 26, 2026 · Updated: November 27, 2026</p>
 
 <h2>Data we collect</h2>
 <p>The developer of Comfy Pocket (“the app”) does not collect any personal information or usage data. The app has no accounts, ads, analytics or tracking.</p>
@@ -51,10 +51,14 @@ footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line);
 <p>How that data is handled is up to the operator of each server, usually you.</p>
 
 <h2>Data stored on your device</h2>
-<p>Server addresses, workflows, input drafts, run history and results you save stay on your device only. Authentication tokens and app lock passcodes are stored in the device Keychain. Deleting the app removes this data.</p>
+<p>Server addresses, workflows, input drafts, run history and results you save stay on your device only. Authentication tokens are stored in the Keychain on iPhone and iPad, and encrypted with an Android Keystore key on Android. App lock passcodes are stored only in a form that can't be reversed (a hash). Deleting the app removes this data.</p>
+<p>To show them faster, images and files fetched from your servers are kept on the device temporarily while the app is running. These temporary files are deleted when the app starts again.</p>
 
-<h2>Photos and local network</h2>
-<p>Photo Library access is used only to add results when you save them. Local Network access is used to connect to ComfyUI on your network.</p>
+<h2>Photos, files and local network</h2>
+<p>On iPhone and iPad, Photo Library access is used only to add results when you save them, and Local Network access is used to connect to ComfyUI on your network. On Android, the app reads only the photos and files you choose, and saves results to the “Comfy Pocket” folders in Pictures, Movies or Music when you choose to save them.</p>
+
+<h2>Notifications</h2>
+<p>Progress and completion notifications, including Live Activities on iPhone, are created by the app on your device. No push notification service or other outside server is used. On Android, the app uses a foreground service to keep checking active runs and shows a notification while it does. You can turn notifications off in the app's settings at any time.</p>
 
 <h2>Sharing with third parties</h2>
 <p>Because the developer collects no data, none is shared with third parties.</p>
