@@ -1,0 +1,8 @@
+node_modules/
+.next/
+out/
+public/
+storybook-static/
+playwright-report/
+test-results/
+*.tsbuildinfo
