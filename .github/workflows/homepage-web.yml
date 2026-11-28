@@ -1,0 +1,38 @@
+name: Homepage checks
+on:
+  pull_request:
+    paths: ['web/home/**', 'index.html', 'homepage-assets/**', '.github/workflows/homepage-web.yml']
+  push:
+    branches: [main]
+    paths: ['web/home/**', 'index.html', 'homepage-assets/**', '.github/workflows/homepage-web.yml']
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web/home
+    env:
+      NEXT_TELEMETRY_DISABLED: '1'
+      STORYBOOK_DISABLE_TELEMETRY: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: web/home/package-lock.json
+      - run: npm ci
+      - run: npm run build
+      - run: npm run typecheck
+      - run: npm run export-pages
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+      - run: npm run build-storybook -- --disable-telemetry
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: homepage-playwright-report
+          path: web/home/playwright-report/
+          retention-days: 7
