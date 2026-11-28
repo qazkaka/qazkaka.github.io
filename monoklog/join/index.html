@@ -4,44 +4,62 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="robots" content="noindex">
 <title>ものクログ グループへの招待</title>
-<link rel="icon" type="image/png" href="../images/favicon.png">
-<link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/monoklog/images/favicon.png">
+<link rel="apple-touch-icon" href="/monoklog/images/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ものクログ">
 <meta property="og:title" content="ものクログ グループへの招待">
 <meta property="og:description" content="ものクログのグループに招待されています。アプリで開いて、参加を申請してください。">
 <meta property="og:image" content="https://qazkaka.github.io/monoklog/images/ogp.png">
 <meta name="twitter:card" content="summary_large_image">
-<style>
-:root { color-scheme: light dark; }
-body { margin: 0 auto; padding: 32px 24px; max-width: 34rem; font: 1rem/1.85 -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif; background: Canvas; color: CanvasText; overflow-wrap: anywhere; }
-.icon { width: 88px; height: 88px; border-radius: 20px; display: block; margin: 8px auto 16px; }
-h1 { font-size: 1.45rem; line-height: 1.5; text-align: center; margin: 0 0 1rem; }
-ol { padding-left: 1.4rem; }
-li { margin: .5rem 0; }
-.store { display: block; margin: 1.6rem auto; padding: .9rem 1.2rem; max-width: 18rem; text-align: center; border-radius: 999px; background: #006e70; color: #fff; text-decoration: none; font-weight: 700; }
-.note { font-size: .9rem; opacity: .75; }
-a { color: LinkText; text-underline-offset: .18em; }
-</style>
+<link rel="stylesheet" href="/monoklog/help.css">
 </head>
 <body>
-<main>
-<img class="icon" src="../images/icon-512.png" alt="">
-<h1>ものクログのグループに<br>招待されています</h1>
-<p>このリンクは、ものクログのアプリで開くと、グループへの参加を申請できます。</p>
-<ol>
-<li>ものクログをまだ入れていない場合は、App Store から入れてください。</li>
-<li>もう一度、届いた招待リンクを開いてください。アプリが開き、参加の画面が表示されます。</li>
-<li>表示名を入れて申請すると、リーダーが承認したあとにグループの投稿が見えるようになります。</li>
-</ol>
-<a class="store" href="https://apps.apple.com/app/id6833710021">App Store で見る</a>
-<p class="note">リンクを開いてもアプリに切り替わらないときは、届いたメッセージ（招待リンク）をコピーして、アプリの「タイムライン」→ 左上のグループのボタン →「招待リンクから参加する」に貼り付けてください。</p>
-<p class="note">招待リンクは発行から24時間有効です。期限が切れた場合は、リーダーに新しい招待リンクを送ってもらってください。</p>
-<p class="note"><a href="../index.html">ものクログについて</a></p>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header">
+  <div class="site-width header-inner">
+    <a class="brand" href="/monoklog/">
+      <img src="/monoklog/images/icon-512.png" width="36" height="36" alt="">
+      <span>ものクログ</span>
+    </a>
+  </div>
+</header>
+<main id="main" tabindex="-1" class="site-width invite-main">
+  <div class="page-intro">
+    <h1>ものクログのグループに<br>招待されています</h1>
+    <p>届いた招待リンクをアプリで開いて、参加を申請してください。</p>
+  </div>
+
+  <section class="panel" aria-labelledby="join-steps">
+    <h2 id="join-steps">参加する手順</h2>
+    <ol class="invite-steps">
+      <li>ものクログをまだ入れていない場合は、App Storeからインストールします。</li>
+      <li>メッセージに届いた招待リンクをもう一度開きます。</li>
+      <li>アプリで表示名を入力して申請します。リーダーが承認すると、グループの投稿を見られます。</li>
+    </ol>
+    <p><a class="btn" href="https://apps.apple.com/app/id6833710021">App Storeで見る</a></p>
+  </section>
+
+  <section class="invite-help" aria-labelledby="invite-help">
+    <h2 id="invite-help">リンクからアプリが開かないとき</h2>
+    <p>届いた招待リンクをコピーし、アプリの「タイムライン」左上のグループのボタンから「招待リンクから参加する」を開いて貼り付けてください。</p>
+    <p class="callout">招待リンクは発行から24時間有効です。期限が切れた場合は、リーダーに新しいリンクを送ってもらってください。</p>
+    <p><a href="/monoklog/support.html#faq-group">グループのよくある質問を見る</a></p>
+  </section>
 </main>
+<footer class="site-footer">
+  <div class="site-width footer-inner">
+    <a class="brand" href="/monoklog/">ものクログ</a>
+    <nav aria-label="フッターナビゲーション">
+      <a href="/monoklog/support.html">サポート</a>
+      <a href="/monoklog/PrivacyPolicy.html">プライバシーポリシー</a>
+      <a href="#main">ページの先頭へ</a>
+    </nav>
+  </div>
+</footer>
 </body>
 </html>

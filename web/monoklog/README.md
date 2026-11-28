@@ -38,7 +38,7 @@ npm run export-pages
 
 `../../monoklog/index.html` と `../../monoklog/_next/` が配信用ファイルです。ソースと一緒にコミットします。リポジトリの既存の `.nojekyll` は維持してください。`main` への反映で既存のGitHub Pages公開処理が配信します。チェック用ワークフローはPagesの公開設定を変更しません。
 
-`support.html`、`PrivacyPolicy.html`、`join/`、`app-ads.txt`、画像、ルートの `.well-known/apple-app-site-association`、他のアプリはそのまま維持します。既存の `#groups`、`#sync`、`#usage`、`#widget`、`#care`、`#share` も利用できます。
+サポート、プライバシーポリシー、グループ招待の案内は `../../monoklog/` のHTMLと共通の `help.css` を編集します。これらのページはGitHub Pagesがそのまま配信し、ローカルビルド時にはプレビュー用にもコピーします。プライバシーポリシーの更新時は、アプリの原文に合わせて本文と更新日を差し替え、目次と見出しのリンクを確認してください。
 
 ローカル確認では `npm run build` のあと `npm run preview` を実行します。
 

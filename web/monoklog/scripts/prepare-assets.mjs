@@ -5,6 +5,7 @@ const target = new URL("../public/", import.meta.url);
 await mkdir(target, { recursive: true });
 for (const entry of [
   "images",
+  "help.css",
   "support.html",
   "PrivacyPolicy.html",
   "join",
