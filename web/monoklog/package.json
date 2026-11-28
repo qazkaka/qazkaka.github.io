@@ -1,0 +1,53 @@
+{
+  "name": "monoklog-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prepare-assets": "node scripts/prepare-assets.mjs",
+    "dev": "npm run prepare-assets && next dev --hostname 127.0.0.1 --port 3000",
+    "build": "npm run prepare-assets && next build --webpack && node scripts/secure-export.mjs",
+    "preview": "node scripts/preview.mjs",
+    "typecheck": "tsc --noEmit",
+    "test:e2e": "playwright test",
+    "storybook": "npm run prepare-assets && storybook dev -p 6006",
+    "build-storybook": "npm run prepare-assets && storybook build",
+    "export-pages": "node scripts/export-pages.mjs",
+    "format": "prettier --write app components lib scripts tests .storybook *.ts *.mjs *.json *.md"
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.83.0",
+    "motion": "^14.14.0",
+    "next": "^16.4.6",
+    "radix-ui": "^1.8.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "recharts": "^3.11.2",
+    "tailwind-merge": "^3.7.1"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.1",
+    "@playwright/test": "^1.65.1",
+    "@storybook/addon-a11y": "^10.6.9",
+    "@storybook/addon-docs": "^10.6.9",
+    "@storybook/nextjs-vite": "^10.6.9",
+    "@tailwindcss/postcss": "^4.3.5",
+    "@types/node": "^26.6.11",
+    "@types/react": "^19.3.3",
+    "@types/react-dom": "^19.3.0",
+    "prettier": "^3.10.1",
+    "storybook": "^10.6.9",
+    "tailwindcss": "^4.3.5",
+    "typescript": "^5.9.3",
+    "vite": "^8.4.0"
+  },
+  "overrides": {
+    "glob": "^14.0.6",
+    "minimatch": "^11.0.9"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}
